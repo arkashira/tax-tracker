@@ -1,85 +1,86 @@
 <h3 align="center">🛠️ tax-tracker</h3>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
-  <img src="https://img.shields.io/badge/python-3.11%2B-blue.svg" alt="Python" />
-  <img src="https://img.shields.io/badge/build-passing-success.svg" alt="Build Status" />
-  <img src="https://img.shields.io/github/stars/your-org/tax-tracker?style=social" alt="Stars" />
+  <a href="https://github.com/your-org/tax-tracker"><img src="https://img.shields.io/github/stars/your-org/tax-tracker?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/your-org/tax-tracker/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-org/tax-tracker?style=flat-square" alt="License"></a>
+  <a href="https://github.com/your-org/tax-tracker"><img src="https://img.shields.io/badge/language-Python%203.11-blue?style=flat-square" alt="Language"></a>
+  <a href="https://github.com/your-org/tax-tracker/actions"><img src="https://img.shields.io/github/workflow/status/your-org/tax-tracker/CI?label=build&style=flat-square" alt="Build"></a>
 </div>
 
 ---
 
-# 🚀 tax-tracker  
-**Power everyday users with effortless tax tracking.** A comprehensive tax‑management tool that lets anyone monitor expenses, estimate liabilities, and stay compliant—no accounting degree required.
+# 🚀 tax-tracker
+**Power everyday users with effortless tax‑tracking and automatic tax‑estimation.** A comprehensive, user‑friendly tool that turns messy finances into clear, compliant tax reports—no accounting degree required.
 
 ## Why tax-tracker?
-- **Zero‑Accounting Required** – 95 % of users report “no prior tax knowledge needed” after the first week.  
-- **Instant Estimates** – Real‑time tax liability preview reduces surprise penalties by 78 %.  
-- **Expense‑First UI** – Drag‑and‑drop entry cuts data‑entry time by 40 % vs spreadsheets.  
-- **Compliance‑Ready Reports** – Export ready‑to‑file PDFs that pass audit checks on the first try.  
-- **Built for Freelancers & Small Biz** – Tailored to solo‑entrepreneurs, gig workers, and boutique firms.  
-- **Secure & Private** – All data encrypted at rest; GDPR‑compliant by design.  
-- **Open‑Source & Extensible** – Plug‑in architecture lets you add custom deduction rules.
+- **Zero‑Math Needed** – All calculations are done for you; just input expenses/income.
+- **Stay Penalty‑Free** – Real‑time tax‑estimation warns you before under‑payment deadlines.
+- **All‑In‑One Dashboard** – View income, deductions, and projected tax liability at a glance.
+- **Non‑Accountant Friendly** – Plain‑language UI + guided wizards reduce learning curve.
+- **Secure & Private** – Data stored locally or in encrypted cloud storage of your choice.
+- **Extensible** – Plug‑in support for additional tax jurisdictions and reporting formats.
 
 ## Feature Overview
 
 | Feature | Description |
 |---------|-------------|
-| **Expense Tracker** | Quickly log receipts, categorize spend, and attach PDFs. |
-| **Income Logger** | Record invoices, payments, and recurring revenue streams. |
-| **Tax Estimator** | AI‑driven projection of federal, state, and local taxes. |
-| **Report Generator** | One‑click PDF/CSV export of Schedule C, 1099‑NEC, etc. |
-| **Dashboard** | Visual summary of cash flow, tax burden, and upcoming deadlines. |
-| **Multi‑Currency** | Automatic FX conversion for global freelancers. |
-| **Data Sync** | Optional cloud sync via encrypted API (self‑hosted or SaaS). |
+| **Expense & Income Capture** | Quick entry forms, CSV import, and bank‑statement parsing. |
+| **Automated Tax Estimation** | Calculates provisional tax based on current rules for your jurisdiction. |
+| **What‑If Scenarios** | Simulate changes (e.g., new deduction) and see tax impact instantly. |
+| **Reporting** | Generate PDF/Excel tax reports ready for filing or accountant review. |
+| **Multi‑Year Support** | Store and compare data across fiscal years. |
+| **Data Export/Import** | Backup to JSON or restore from previous exports. |
+| **Localization** | UI available in English and Thai (future languages planned). |
 
 ## Tech Stack
-> The definitive stack is defined in `decisions/tech-stack.md`.  
-> **Please refer to that file for the exact list of technologies.**  
-> *(No additional stack components have been added beyond the locked definition.)*
+*The definitive tech‑stack will be recorded in `decisions/tech-stack.md` once locked.*  
+Current repository structure indicates a **Python** project managed via **pyproject.toml** (likely Poetry or setuptools). No additional technologies are assumed beyond what the lock later defines.
 
 ## Project Structure
 ```
 tax-tracker/
-├─ business/        # Domain‑logic (tax rules, calculations)
-├─ src/             # Application code (CLI, API, UI)
-├─ tests/           # Unit & integration test suite
-├─ pyproject.toml   # Build system, dependencies, entry points
-└─ README.md        # This document
+├─ business/          # Domain‑specific business logic (tax rules, calculations)
+├─ src/               # Core application code (CLI, UI, data models)
+├─ tests/             # Unit and integration test suite
+├─ README.md
+└─ pyproject.toml     # Build system, dependencies, entry points
 ```
 
 ## Getting Started
+
+> **Prerequisite** – Python 3.11+ installed and `pip` available.
+
 ```bash
 # 1️⃣ Clone the repository
 git clone https://github.com/your-org/tax-tracker.git
 cd tax-tracker
 
-# 2️⃣ Create a virtual environment & install the package in editable mode
-python -m venv .venv
-source .venv/bin/activate
+# 2️⃣ Install the package (editable mode)
 pip install -e .
 
-# 3️⃣ Run the application (entry point defined in pyproject.toml)
-tax-tracker  # <-- replace with the actual console script name if different
+# 3️⃣ Run the CLI (entry point defined in pyproject.toml)
+tax-tracker --help
+```
 
-# 4️⃣ Run the test suite
-pytest
+### Running the Test Suite
+```bash
+# Using the built‑in test runner (pytest assumed)
+pytest -q
 ```
 
 ## Deploy
-```bash
-# Deploy to the target environment defined in decisions/tech-stack.md
-# Example (Docker):
-docker build -t tax-tracker:latest .
-docker run -d -p 8000:8000 tax-tracker:latest
-```
-*Adjust the commands according to the deployment strategy locked in `decisions/tech-stack.md`.*
+Deployment instructions will be added once the deployment target is locked in `decisions/tech-stack.md`. Typical options may include:
+
+- **Docker** container for self‑hosting  
+- **Serverless** (AWS Lambda / Cloudflare Workers) for API‑only usage  
+
+Stay tuned for the final deployment guide.
 
 ## Status
-✅ **Active development** – latest commit `b681e1c` (2026‑06‑10) adds documentation updates.
+🚧 **In active development** – latest commit `8ce1a11` (2026‑06‑10) adds the CI build pipeline.
 
 ## Contributing
-Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to propose improvements.
+We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to propose changes, run tests, and submit pull requests.
 
 ## License
-MIT License – see the `LICENSE` file for details.
+This project is licensed under the **MIT License**.
