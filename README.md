@@ -1,115 +1,92 @@
-<h3 align="center">💰 <project-name></h3>
+**🛠️ Tax-Tracker** 🛠️
 
 <div align="center">
-  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
-  <img src="https://img.shields.io/badge/language-Python-yellow.svg" alt="Language">
-  <img src="https://img.shields.io/badge/build-passing-green.svg" alt="Build">
-  <img src="https://img.shields.io/badge/stars-0-red.svg" alt="Stars">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.10-blue.svg" alt="Python 3.10">
+  </a>
+  <a href="https://github.com/tax-tracker/tax-tracker">
+    <img src="https://img.shields.io/github/stars/tax-tracker/tax-tracker.svg?style=social" alt="Stars: 0">
+  </a>
+  <a href="https://github.com/tax-tracker/tax-tracker/actions/workflows/main.yml">
+    <img src="https://github.com/tax-tracker/tax-tracker/actions/workflows/main.yml/badge.svg" alt="Build Status">
+  </a>
 </div>
 
 ---
 
-# 🚀 Tax Tracker
+# 🚀 Tax-Tracker
 
-**Power individuals with effortless tax management.** Tax Tracker is a comprehensive tax management tool that simplifies tracking of expenses and income, with automated tax estimation features to help users avoid underpayment penalties. Designed for non-accountants, it reduces the learning curve and ensures compliance with ease.
+**Power individuals with accurate tax tracking.** Comprehensive tax management tool that simplifies tracking of expenses and income, automated tax estimation features to help users avoid underpayment penalties, and a user-friendly interface designed for non-accountants, reducing the learning curve.
 
-## Why Tax Tracker?
+## Why Tax-Tracker?
 
-- **Automated Tax Estimation**: Accurately estimates taxes to avoid underpayment penalties.
-- **User-Friendly Interface**: Designed for non-accountants, making tax management accessible.
-- **Expense and Income Tracking**: Comprehensive tracking of financial transactions.
-- **Compliance Assurance**: Helps users stay compliant with tax regulations.
-- **Reduced Learning Curve**: Intuitive design that simplifies tax management.
-- **Built for Individuals**: Tailored for personal tax management needs.
+* **Accurate Tax Estimation**: Automated tax estimation features to help users avoid underpayment penalties.
+* **User-Friendly Interface**: Designed for non-accountants, reducing the learning curve.
+* **Comprehensive Tracking**: Simplifies tracking of expenses and income.
+* **Automated Reporting**: Generates reports to help users stay on top of their taxes.
+* **Scalable**: Built to handle large amounts of data and user growth.
+* **Secure**: Uses industry-standard encryption to protect user data.
 
 ## Feature Overview
 
-| Feature                     | Description                                                                 |
-|-----------------------------|-----------------------------------------------------------------------------|
-| Expense Tracking            | Track all your expenses in one place.                                      |
-| Income Tracking             | Monitor your income sources efficiently.                                    |
-| Tax Estimation              | Automatically estimate your tax liabilities.                               |
-| User-Friendly Interface     | Easy-to-use interface designed for non-accountants.                        |
-| Compliance Tools            | Tools to help you stay compliant with tax regulations.                     |
-| Reporting                   | Generate detailed reports for tax filing.                                  |
+| Feature | Description |
+| --- | --- |
+| Tax Estimation | Automated tax estimation features to help users avoid underpayment penalties. |
+| Expense Tracking | Simplifies tracking of expenses and income. |
+| User Interface | User-friendly interface designed for non-accountants, reducing the learning curve. |
+| Reporting | Generates reports to help users stay on top of their taxes. |
+| Scalability | Built to handle large amounts of data and user growth. |
+| Security | Uses industry-standard encryption to protect user data. |
 
 ## Tech Stack
 
-- Python
-- Flask
-- SQLAlchemy
-- PostgreSQL
-- React
-- Redux
-- Docker
-- Kubernetes
+* Python 3.10
+* Pyproject.toml
+* Requirements.txt
+* Poetry
 
 ## Project Structure
 
-```
-tax-tracker/
-├── business/          # Business logic and core functionalities
-├── src/               # Source code for the application
-├── tests/             # Test cases for the application
-├── README.md          # Project documentation
-├── pyproject.toml     # Project configuration
-└── requirements.txt   # Project dependencies
-```
+* `business/`
+* `docs/`
+* `src/`
+* `tests/`
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.8+
-- Docker
-- Kubernetes
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/tax-tracker.git
-   cd tax-tracker
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Set up the database:
-   ```bash
-   docker-compose up -d
-   ```
-
-4. Run the application:
-   ```bash
-   python src/app.py
-   ```
-
-### Testing
-
-Run the tests using the following command:
 ```bash
-python -m pytest tests/
+# Clone the repository
+git clone https://github.com/tax-tracker/tax-tracker.git
+
+# Install dependencies
+poetry install
+
+# Run the application
+poetry run python src/main.py
 ```
 
 ## Deploy
 
-Deploy the application using Kubernetes:
 ```bash
-kubectl apply -f kubernetes/deployment.yaml
-kubectl apply -f kubernetes/service.yaml
+# Build the application
+poetry build
+
+# Deploy to production
+poetry run python src/deploy.py
 ```
 
 ## Status
 
-The project is currently in active development. Recent commit summary: `axentx-dev-bot: code-build cycle 20260610-033435-tax-trac`
+Last updated: 2023-06-10
+Recent commit: `cbe5814 docs: add startup artifacts (PRD.md) [artifact-prep]`
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
 ## License
 
-This project is licensed under the MIT License.
+Tax-Tracker is licensed under the MIT License.
