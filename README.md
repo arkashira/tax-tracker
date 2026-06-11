@@ -1,105 +1,77 @@
 <h3 align="center">🛠️ tax-tracker</h3>
 
 <div align="center">
-  <a href="https://github.com/your-org/tax-tracker/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/your-org/tax-tracker"><img src="https://img.shields.io/github/languages/top/your-org/tax-tracker?color=green" alt="Language"></a>
-  <a href="https://github.com/your-org/tax-tracker/actions"><img src="https://img.shields.io/github/workflow/status/your-org/tax-tracker/CI?label=build" alt="Build Status"></a>
-  <a href="https://github.com/your-org/tax-tracker/stargazers"><img src="https://img.shields.io/github/stars/your-org/tax-tracker?style=social" alt="Stars"></a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://www.python.org/" target="_blank">
+    <img alt="Language: Python" src="https://img.shields.io/badge/Language-Python-blue.svg" />
+  </a>
+  <a href="https://github.com/axentx/tax-tracker/actions" target="_blank">
+    <img alt="Build: Passing" src="https://img.shields.io/github/actions/workflow/status/axentx/tax-tracker/build.yml?branch=main" />
+  </a>
+  <a href="https://github.com/axentx/tax-tracker/stargazers" target="_blank">
+    <img alt="Stars: 0" src="https://img.shields.io/github/stars/axentx/tax-tracker?style=social" />
+  </a>
 </div>
 
 ---
-
-# 🚀 tax-tracker  
-**Power freelancers & small businesses with effortless tax tracking and automated estimation.** A comprehensive, user‑friendly tool that turns messy receipts into clear, compliant tax reports.
+# 🚀 tax-tracker
+**Power individuals and businesses with automated tax tracking and estimation.** Comprehensive tax management tool that simplifies tracking of expenses and income, with automated tax estimation features to help users avoid underpayment penalties.
 
 ## Why tax-tracker?
-
-- **Zero‑Math Hassle** – Auto‑calculates quarterly tax estimates, cutting under‑payment risk by up to 97 %.
-- **All‑in‑One Dashboard** – Consolidates income, expenses, and deductions in a single view, reducing bookkeeping time by 80 %.
-- **Non‑Accountant Friendly** – Guided UI & plain‑language explanations, so anyone can file confidently.
-- **Real‑Time Alerts** – Push notifications when you’re approaching tax‑due thresholds.
-- **Secure & Private** – End‑to‑end encryption; your financial data never leaves your device.
-- **Built for Freelancers & SMBs** – Tailored tax rules for the U.S. (Federal & State) and EU VAT regimes.
+- **User-friendly interface**: designed for non-accountants, reducing the learning curve.
+- **Automated tax estimation**: helps users avoid underpayment penalties.
+- **Comprehensive expense tracking**: simplifies tracking of expenses and income.
+- **Customizable**: allows users to tailor the tool to their specific needs.
+- **Secure**: ensures the security and integrity of user data.
+- **Regular updates**: ensures the tool stays up-to-date with changing tax laws and regulations.
+- **Community support**: provides a community-driven support system for users.
 
 ## Feature Overview
-
 | Feature | Description |
-|---------|-------------|
-| **Expense Capture** | Drag‑and‑drop receipt upload, OCR extraction, and categorisation. |
-| **Income Sync** | Connects to Stripe, PayPal, and bank APIs for automatic income import. |
-| **Tax Estimator** | Calculates estimated tax liability based on current data and jurisdiction. |
-| **Reporting** | Generates IRS‑ready 1099/1040 forms and EU VAT reports. |
-| **Alerts & Reminders** | Email/SMS push when filing deadlines approach. |
-| **Data Export** | CSV/JSON export for external accounting tools. |
-| **Multi‑User** | Team accounts with role‑based permissions. |
+| --- | --- |
+| Expense tracking | Allows users to track and categorize expenses |
+| Income tracking | Allows users to track and categorize income |
+| Automated tax estimation | Estimates tax liability based on user input |
+| User-friendly interface | Easy-to-use interface for non-accountants |
+| Customizable | Allows users to tailor the tool to their specific needs |
 
 ## Tech Stack
-*The tech‑stack decisions are defined in `decisions/tech-stack.md`. No additional technologies have been introduced beyond those locked in that document.*
+* Python
+* (Note: The tech stack is not yet locked, and the above list may not be comprehensive or accurate)
 
 ## Project Structure
-
-```
-tax-tracker/
-├─ business/          # Domain‑specific business logic (tax rules, calculations)
-├─ docs/              # Documentation, PRD, BMC, ROADMAP, etc.
-├─ src/               # Core application source code
-│   └─ tax_tracker/   # Python package (models, services, CLI)
-├─ tests/             # Unit & integration test suite
-├─ pyproject.toml     # Build system, entry points, metadata
-├─ requirements.txt   # Runtime dependencies
-└─ README.md          # ← you are here
-```
+* business: business logic and models
+* docs: documentation and startup artifacts
+* src: source code
+* tests: unit tests and integration tests
 
 ## Getting Started
-
 ```bash
-# 1️⃣ Clone the repo
-git clone https://github.com/your-org/tax-tracker.git
-cd tax-tracker
-
-# 2️⃣ Create a virtual environment
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-
-# 3️⃣ Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 4️⃣ Run the application (console entry point defined in pyproject.toml)
-tax-tracker  # or: python -m tax_tracker
-```
+# Run the application
+python src/main.py
 
-### Running the Test Suite
-
-```bash
-# Install test extras (if any)
-pip install -r requirements.txt -r tests/requirements.txt
-
-# Execute tests
-pytest
+# Run tests
+python -m unittest discover -s tests
 ```
 
 ## Deploy
-
-Deployment instructions depend on the target platform defined in `decisions/tech-stack.md`. Typical options include:
-
-* **Docker** – Build and run the container:
-
 ```bash
-docker build -t tax-tracker:latest .
-docker run -p 8000:8000 tax-tracker:latest
+# Deploy to production
+# (Note: The deployment process is not yet defined)
 ```
 
-* **Serverless (AWS Lambda / GCP Cloud Functions)** – Use the provided `serverless.yml`/`cloudbuild.yaml` (generated from the tech‑stack lock) to deploy.
-
-* **Heroku / Render** – Push the repository; the `Procfile` will invoke the entry point.
-
-> **Note:** Replace the placeholder commands with the exact scripts once the tech‑stack lock is finalized.
-
 ## Status
-Active development – latest commit `28a6523` (2026‑06‑10) adds the final build pipeline for `tax-tracker`.
+Last commit: c6c5279 - code-build cycle 20260610-033259-tax-trac
 
 ## Contributing
-Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to propose enhancements, report bugs, and submit pull requests.
+[CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
-Distributed under the MIT License. See `LICENSE` for details.
+MIT License
+
+Note: This README is generated based on the provided information and may not be comprehensive or accurate. The tech stack is not yet locked, and the deployment process is not yet defined.
