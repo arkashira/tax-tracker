@@ -1,51 +1,48 @@
+import json
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict
+from typing import List
 
-class SubscriptionStatus(Enum):
-    ACTIVE = "active"
-    INACTIVE = "inactive"
-    CANCELED = "canceled"
+class IncomeCategory(Enum):
+    FREELANCE = "freelance"
+    SALARY = "salary"
+    INVESTMENTS = "investments"
 
 @dataclass
-class Subscription:
-    id: str
-    status: SubscriptionStatus
-    plan: str
-    billing_cycle: str
+class IncomeEntry:
+    amount: float
+    category: IncomeCategory
+    description: str
 
 class TaxTracker:
     def __init__(self):
-        self.subscriptions: Dict[str, Subscription] = {}
+        self.income_entries = []
 
-    def upgrade_subscription(self, subscription_id: str, new_plan: str):
-        subscription = self.subscriptions.get(subscription_id)
-        if subscription:
-            subscription.plan = new_plan
-            return subscription
-        else:
-            raise ValueError("Subscription not found")
+    def add_income(self, amount: float, category: IncomeCategory, description: str):
+        income_entry = IncomeEntry(amount, category, description)
+        self.income_entries.append(income_entry)
 
-    def downgrade_subscription(self, subscription_id: str, new_plan: str):
-        subscription = self.subscriptions.get(subscription_id)
-        if subscription:
-            subscription.plan = new_plan
-            return subscription
-        else:
-            raise ValueError("Subscription not found")
+    def get_income_entries(self):
+        return self.income_entries
 
-    def cancel_subscription(self, subscription_id: str):
-        subscription = self.subscriptions.get(subscription_id)
-        if subscription:
-            subscription.status = SubscriptionStatus.CANCELED
-            return subscription
-        else:
-            raise ValueError("Subscription not found")
+    def categorize_income(self, category: IncomeCategory):
+        return [entry for entry in self.income_entries if entry.category == category]
 
-    def process_payment(self, subscription_id: str, amount: float):
-        subscription = self.subscriptions.get(subscription_id)
-        if subscription:
-            # Simulate payment processing
-            return f"Payment processed for {amount} on subscription {subscription_id}"
-        else:
-            raise ValueError("Subscription not found")
+    def save_to_json(self, filename: str):
+        data = [{"amount": entry.amount, "category": entry.category.value, "description": entry.description} for entry in self.income_entries]
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
+    @classmethod
+    def load_from_json(cls, filename: str):
+        tracker = cls()
+        try:
+            with open(filename, "r") as f:
+                data = json.load(f)
+                for entry_data in data:
+                    category = IncomeCategory(entry_data["category"])
+                    income_entry = IncomeEntry(entry_data["amount"], category, entry_data["description"])
+                    tracker.income_entries.append(income_entry)
+        except FileNotFoundError:
+            pass
+        return tracker
