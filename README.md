@@ -1,16 +1,19 @@
 # Tax Tracker
-A simple tax tracking system.
+
+A simple tax tracking application.
 
 ## Features
-* Subscribe to a comprehensive support plan
-* Process payments securely
-* Get billing information
+
+* Manage subscriptions
+* Upgrade, downgrade, or cancel subscriptions
+* Process payments
 
 ## Usage
-1. Create a new instance of the `TaxTracker` class.
-2. Subscribe to a plan using the `subscribe` method.
-3. Process payments using the `process_payment` method.
-4. Get billing information using the `get_billing_info` method.
 
-## Testing
-Run the tests using `pytest`.
+1. Create a `TaxTracker` instance
+2. Add subscriptions using the `upgrade_subscription`, `downgrade_subscription`, or `cancel_subscription` methods
+3. Process payments using the `process_payment` method
+
+## Tests
+
+Run `pytest` to execute the tests.
