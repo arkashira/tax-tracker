@@ -1,33 +1,25 @@
-from tax_tracker import TaxTracker, IncomeCategory, IncomeEntry
+from tax_tracker import TaxTracker, Plan
 
-def test_add_income():
+def test_subscribe():
     tracker = TaxTracker()
-    tracker.add_income(100.0, IncomeCategory.FREELANCE, "Freelance work")
-    assert len(tracker.get_income_entries()) == 1
-    assert tracker.get_income_entries()[0].amount == 100.0
-    assert tracker.get_income_entries()[0].category == IncomeCategory.FREELANCE
-    assert tracker.get_income_entries()[0].description == "Freelance work"
+    user_id = "user1"
+    plan = Plan.COMPREHENSIVE
+    billing_info = {"name": "John Doe", "card_number": "1234-5678-9012-3456"}
+    tracker.subscribe(user_id, plan, billing_info)
+    assert tracker.get_billing_info(user_id) == billing_info
 
-def test_categorize_income():
+def test_process_payment():
     tracker = TaxTracker()
-    tracker.add_income(100.0, IncomeCategory.FREELANCE, "Freelance work")
-    tracker.add_income(200.0, IncomeCategory.SALARY, "Salary")
-    categorized_entries = tracker.categorize_income(IncomeCategory.FREELANCE)
-    assert len(categorized_entries) == 1
-    assert categorized_entries[0].amount == 100.0
-    assert categorized_entries[0].category == IncomeCategory.FREELANCE
-    assert categorized_entries[0].description == "Freelance work"
+    user_id = "user1"
+    plan = Plan.COMPREHENSIVE
+    billing_info = {"name": "John Doe", "card_number": "1234-5678-9012-3456"}
+    tracker.subscribe(user_id, plan, billing_info)
+    assert tracker.process_payment(user_id) == True
 
-def test_save_to_json():
+def test_get_billing_info():
     tracker = TaxTracker()
-    tracker.add_income(100.0, IncomeCategory.FREELANCE, "Freelance work")
-    tracker.save_to_json("income.json")
-    loaded_tracker = TaxTracker.load_from_json("income.json")
-    assert len(loaded_tracker.get_income_entries()) == 1
-    assert loaded_tracker.get_income_entries()[0].amount == 100.0
-    assert loaded_tracker.get_income_entries()[0].category == IncomeCategory.FREELANCE
-    assert loaded_tracker.get_income_entries()[0].description == "Freelance work"
-
-def test_load_from_json_file_not_found():
-    tracker = TaxTracker.load_from_json("non_existent_file.json")
-    assert len(tracker.get_income_entries()) == 0
+    user_id = "user1"
+    plan = Plan.COMPREHENSIVE
+    billing_info = {"name": "John Doe", "card_number": "1234-5678-9012-3456"}
+    tracker.subscribe(user_id, plan, billing_info)
+    assert tracker.get_billing_info(user_id) == billing_info

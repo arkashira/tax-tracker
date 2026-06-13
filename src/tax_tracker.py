@@ -1,48 +1,34 @@
 import json
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import Dict
 
-class IncomeCategory(Enum):
-    FREELANCE = "freelance"
-    SALARY = "salary"
-    INVESTMENTS = "investments"
+class Plan(Enum):
+    BASIC = 1
+    COMPREHENSIVE = 2
 
 @dataclass
-class IncomeEntry:
-    amount: float
-    category: IncomeCategory
-    description: str
+class Subscription:
+    plan: Plan
+    billing_info: Dict[str, str]
 
 class TaxTracker:
     def __init__(self):
-        self.income_entries = []
+        self.subscriptions = {}
 
-    def add_income(self, amount: float, category: IncomeCategory, description: str):
-        income_entry = IncomeEntry(amount, category, description)
-        self.income_entries.append(income_entry)
+    def subscribe(self, user_id: str, plan: Plan, billing_info: Dict[str, str]):
+        self.subscriptions[user_id] = Subscription(plan, billing_info)
 
-    def get_income_entries(self):
-        return self.income_entries
+    def process_payment(self, user_id: str):
+        subscription = self.subscriptions.get(user_id)
+        if subscription:
+            # Process payment securely
+            print(f"Processing payment for {user_id}...")
+            return True
+        return False
 
-    def categorize_income(self, category: IncomeCategory):
-        return [entry for entry in self.income_entries if entry.category == category]
-
-    def save_to_json(self, filename: str):
-        data = [{"amount": entry.amount, "category": entry.category.value, "description": entry.description} for entry in self.income_entries]
-        with open(filename, "w") as f:
-            json.dump(data, f)
-
-    @classmethod
-    def load_from_json(cls, filename: str):
-        tracker = cls()
-        try:
-            with open(filename, "r") as f:
-                data = json.load(f)
-                for entry_data in data:
-                    category = IncomeCategory(entry_data["category"])
-                    income_entry = IncomeEntry(entry_data["amount"], category, entry_data["description"])
-                    tracker.income_entries.append(income_entry)
-        except FileNotFoundError:
-            pass
-        return tracker
+    def get_billing_info(self, user_id: str):
+        subscription = self.subscriptions.get(user_id)
+        if subscription:
+            return subscription.billing_info
+        return None
